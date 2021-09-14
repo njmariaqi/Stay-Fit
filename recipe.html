@@ -13,7 +13,7 @@
 <body>
   <div class="columns is-4" style="margin: 20px">
     <div class="column">
-      <div id="card1" class="card">
+      <div id="card1" class="card modal-button"  data-target="modalCard" aria-haspopup="true">
         <div class="card-image">
           <figure class="image is-4by3">
             <img id="imgRecipe1" alt="Placeholder image 1">
@@ -50,9 +50,9 @@
           </div>
           <div class="content">
             <ul>
-              <li>Calories: <span id="calories"></span></li>
-              <li>Fat: <span id="fat"></span></li>
-              <li>Protein: <span id="protein"></span></li>
+              <li>Calories: <span id="calories2"></span></li>
+              <li>Fat: <span id="fat2"></span></li>
+              <li>Protein: <span id="protein2"></span></li>
             </ul>
           </div>
         </div>
@@ -73,15 +73,64 @@
           </div>
           <div class="content">
             <ul>
-              <li>Calories: <span id="calories"></span></li>
-              <li>Fat: <span id="fat"></span></li>
-              <li>Protein: <span id="protein"></span></li>
+              <li>Calories: <span id="calories3"></span></li>
+              <li>Fat: <span id="fat3"></span></li>
+              <li>Protein: <span id="protein3"></span></li>
             </ul>
           </div>
         </div>
       </div>      
     </div>
+  </div>
+    <button id="hey" class="button is-primary is-large modal-button" data-target="modalCard" aria-haspopup="true">
+      Launch card modal
+    </button>
+    <div id="modalCard" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Modal title</p>
+          <button id="modalClose" class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <div class="content">
+            <h1>Hello World</h1>
+            <p>
+              1
+            </p>
+            <h2>Second level</h2>
+            <p>
+              2
+            </p>
+            <ul>
+              <li>In fermentum leo eu lectus mollis, quis dictum mi aliquet.</li>
+              <li>Morbi eu nulla lobortis, lobortis est in, fringilla felis.</li>
+              <li>Aliquam nec felis in sapien venenatis viverra fermentum nec lectus.</li>
+              <li>Ut non enim metus.</li>
+            </ul>
+            <h3>Third level</h3>
+            <p>3</p>
+            <ol>
+              <li>Donec blandit a lorem id convallis.</li>
+              <li>Cras gravida arcu at diam gravida gravida.</li>
+              <li>Integer in volutpat libero.</li>
+              <li>Donec a diam tellus.</li>
+              <li>Aenean nec tortor orci.</li>
+              <li>Quisque aliquam cursus urna, non bibendum massa viverra eget.</li>
+              <li>Vivamus maximus ultricies pulvinar.</li>
+            </ol>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-success">Save changes</button>
+          <button class="button">Cancel</button>
+        </footer>
+      </div>
+    </div>
+  
+  </div>
   </div> 
+  
   <script src="./assets/js/recipe.js"></script>      
 </body>
 </html>
