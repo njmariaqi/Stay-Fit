@@ -11,42 +11,75 @@
     <title>Recipes</title>
 </head>
 <body>
-  <div class="columns">
+  <div class="columns is-4" style="margin: 20px">
     <div class="column">
-      <div class="card">
+      <div id="card1" class="card">
         <div class="card-image">
           <figure class="image is-4by3">
-            <img id="imgRecipe1" alt="Placeholder image">
+            <img id="imgRecipe1" alt="Placeholder image 1">
           </figure>
         </div>
         <div class="card-content">
           <div class="media">
-            <div class="media-left">
-              <figure class="image is-48x48">
-                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-              </figure>
-            </div>
             <div class="media-content">
-              <p id="titleRecipe1" class="title is-4">HERE</p>
-              <p class="subtitle is-6">@johnsmith</p>
+              <p id="titleRecipe1" class="title is-4"></p>
             </div>
           </div>
-      
           <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-            <a href="#">#css</a> <a href="#">#responsive</a>
-            <br>
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            <ul>
+              <li>Calories: <span id="calories"></span></li>
+              <li>Fat: <span id="fat"></span></li>
+              <li>Protein: <span id="protein"></span></li>
+            </ul>
           </div>
         </div>
       </div>   
     </div>
     <div class="column">
-      c2   
+      <div id="card2" class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img id="imgRecipe2" alt="Placeholder image 2">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p id="titleRecipe2" class="title is-4"></p>
+            </div>
+          </div>
+          <div class="content">
+            <ul>
+              <li>Calories: <span id="calories"></span></li>
+              <li>Fat: <span id="fat"></span></li>
+              <li>Protein: <span id="protein"></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>      
     </div>
     <div class="column">
-      c3   
+      <div id="card3" class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img id="imgRecipe3" alt="Placeholder image 3">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p id="titleRecipe3" class="title is-4"></p>
+            </div>
+          </div>
+          <div class="content">
+            <ul>
+              <li>Calories: <span id="calories"></span></li>
+              <li>Fat: <span id="fat"></span></li>
+              <li>Protein: <span id="protein"></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>      
     </div>
   </div> 
   <script src="./assets/js/recipe.js"></script>      
