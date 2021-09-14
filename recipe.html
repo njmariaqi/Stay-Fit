@@ -13,27 +13,29 @@
 <body>
   <div class="columns is-4" style="margin: 20px">
     <div class="column">
-      <div id="card1" class="card modal-button"  data-target="modalCard" aria-haspopup="true">
+      <!-- <button id="hey" class="button modal-button" style="width: 500px" data-target="modalCard" aria-haspopup="true"> -->
+      <div id="hey" class="card1 card modal-button"  data-target="modalCard" aria-haspopup="true">
         <div class="card-image">
-          <figure class="image is-4by3">
-            <img id="imgRecipe1" alt="Placeholder image 1">
+          <figure class="image is-4by3 card1">
+            <img id="imgRecipe1" class="card1" alt="Placeholder image 1">
           </figure>
         </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p id="titleRecipe1" class="title is-4"></p>
+        <div class="card-content card1">
+          <div class="media card1">
+            <div class="media-content card1">
+              <p id="titleRecipe1" class="title is-4 card1"></p>
             </div>
           </div>
-          <div class="content">
-            <ul>
-              <li>Calories: <span id="calories"></span></li>
-              <li>Fat: <span id="fat"></span></li>
-              <li>Protein: <span id="protein"></span></li>
+          <div class="content card1">
+            <ul class="card1">
+              <li class="card1">Calories: <span id="calories"></span></li>
+              <li class="card1">Fat: <span id="fat"></span></li>
+              <li class="card1">Protein: <span id="protein"></span></li>
             </ul>
           </div>
         </div>
-      </div>   
+      </div>
+      <!-- </button>   -->
     </div>
     <div class="column">
       <div id="card2" class="card">
@@ -82,19 +84,16 @@
       </div>      
     </div>
   </div>
-    <button id="hey" class="button is-primary is-large modal-button" data-target="modalCard" aria-haspopup="true">
-      Launch card modal
-    </button>
     <div id="modalCard" class="modal">
       <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
-          <p class="modal-card-title">Modal title</p>
+          <p class="modal-card-title">Recipe</p>
           <button id="modalClose" class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
           <div class="content">
-            <h1>Hello World</h1>
+            <h1 id="detailRecipeTitle"></h1>
             <p>
               1
             </p>

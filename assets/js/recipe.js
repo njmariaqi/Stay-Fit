@@ -10,8 +10,8 @@ function getRecipe() {
           .then (function(data) {
                //card1
                var titleRecipe1 = document.getElementById("titleRecipe1");
-               var imgRecipe1 = document.getElementById("imgRecipe1");
                titleRecipe1.textContent = data.results[0].title;
+               var imgRecipe1 = document.getElementById("imgRecipe1");
                imgRecipe1.setAttribute("src", data.results[0].image);
                var calories = document.getElementById("calories");
                calories.textContent = Math.round(data.results[0].nutrition.nutrients[0].amount);
@@ -41,30 +41,38 @@ function getRecipe() {
                fat3.textContent = Math.round(data.results[2].nutrition.nutrients[2].amount);
                var protein3 = document.getElementById("protein3");
                protein3.textContent = Math.round(data.results[2].nutrition.nutrients[1].amount);
+               function recipeDetail() {
+                    document.addEventListener("click", function(event) {
+                         var element = event.target;
+                         if (element.matches(".card1")) {
+                              var modalCard = document.getElementById("modalCard");
+                              modalCard.setAttribute("class", "modal is-active");
+                              var detailRecipeTitle = document.getElementById("detailRecipeTitle");
+                              detailRecipeTitle.textContent = data.results[0].title;
+                              //get ingredient info
+                              var recipeId = data.results[0].id;
+                              var detailRecipeUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?includeNutrition=false`;
+                              console.log(detailRecipeUrl);
+                              // fetch(detailRecipeUrl)
+                              
+                         }
+                    })
+                    document.addEventListener("click", function(event) {
+                         var element = event.target;
+                         if (element.matches("#modalClose")) {
+                              var modalCard = document.getElementById("modalCard");
+                              modalCard.setAttribute("class", "modal");
+                         }
+                    })
+               }               
+               recipeDetail();
           })
 }
 
-// getRecipe();
+//getRecipe();
 
 // function getIngredient() {
 //      if 
 // }
 
-function recipeDetail() {
-     document.addEventListener("click", function(event) {
-          var element = event.target;
-          if (element.matches("#hey")) {
-               var modalCard = document.getElementById("modalCard");
-               modalCard.setAttribute("class", "modal is-active");
-          }
-     })
-     document.addEventListener("click", function(event) {
-          var element = event.target;
-          if (element.matches("#modalClose")) {
-               var modalCard = document.getElementById("modalCard");
-               modalCard.setAttribute("class", "modal");
-          }
-     })
-}
 
-recipeDetail();
