@@ -10,74 +10,82 @@
     <script src="https://kit.fontawesome.com/ef4e6e05f2.js" crossorigin="anonymous"></script>
     <title>Recipes</title>
 </head>
-<body>
+<body class="has-background-primary" style="height: 100vh;">
+  <section class="hero is-small is-primary">
+    <div class="hero-body">
+          <h1 id="hello" class="title has-text-centered is-1">
+          Hello
+          </h1>
+          <p class="subtitle has-text-centered">
+          <strong>STAY FIT</strong> with me!
+          </p>
+    </div>
+  </section>
   <div class="columns is-4" style="margin: 20px">
     <div class="column">
-      <!-- <button id="hey" class="button modal-button" style="width: 500px" data-target="modalCard" aria-haspopup="true"> -->
-      <div id="hey" class="card1 card modal-button"  data-target="modalCard" aria-haspopup="true">
-        <div class="card-image">
-          <figure class="image is-4by3 card1">
-            <img id="imgRecipe1" class="card1" alt="Placeholder image 1">
+      <div class="recipeCard1 card modal-button"  data-target="modalCard" aria-haspopup="true">
+        <div data-index="0" class="card-image">
+          <figure data-index="0" class="image is-4by3 recipeCard">
+            <img data-index="0" id="imgRecipe1" class="recipeCard" alt="Placeholder image 1">
           </figure>
         </div>
-        <div class="card-content card1">
-          <div class="media card1">
-            <div class="media-content card1">
-              <p id="titleRecipe1" class="title is-4 card1"></p>
+        <div data-index="0" class="card-content recipeCard">
+          <div data-index="0" class="media recipeCard">
+            <div data-index="0" class="media-content recipeCard">
+              <p data-index="0" id="titleRecipe1" class="title is-4 recipeCard" style="height: 60px;"></p>
             </div>
           </div>
-          <div class="content card1">
-            <ul class="card1">
-              <li class="card1">Calories: <span id="calories"></span></li>
-              <li class="card1">Fat: <span id="fat"></span></li>
-              <li class="card1">Protein: <span id="protein"></span></li>
+          <div data-index="0" class="content recipeCard">
+            <ul data-index="0" class="recipeCard">
+              <li data-index="0" class="recipeCard">Calories: <span id="calories"></span></li>
+              <li data-index="0" class="recipeCard">Fat: <span id="fat"></span></li>
+              <li data-index="0" class="recipeCard">Protein: <span id="protein"></span></li>
             </ul>
           </div>
         </div>
       </div>
-      <!-- </button>   -->
     </div>
     <div class="column">
-      <div id="card2" class="card">
-        <div class="card-image">
-          <figure class="image is-4by3">
-            <img id="imgRecipe2" alt="Placeholder image 2">
+      <div data-index="1" id="card2" class="card recipeCard">
+        <div data-index="1" class="card-image recipeCard">
+          <figure data-index="1" class="image is-4by3 recipeCard">
+            <img data-index="1" id="imgRecipe2" class="recipeCard" alt="Placeholder image 2">
           </figure>
         </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p id="titleRecipe2" class="title is-4"></p>
+        <div data-index="1" class="card-content recipeCard">
+          <div data-index="1" class="media recipeCard">
+            <div data-index="1" class="media-content recipeCard">
+              <p data-index="1" id="titleRecipe2" class="title is-4 recipeCard" style="height: 60px;"></p>
             </div>
           </div>
-          <div class="content">
+          <div data-index="1" class="content recipeCard">
             <ul>
-              <li>Calories: <span id="calories2"></span></li>
-              <li>Fat: <span id="fat2"></span></li>
-              <li>Protein: <span id="protein2"></span></li>
+              <li data-index="1" class="recipeCard">Calories: <span id="calories2"></span></li>
+              <li data-index="1" class="recipeCard">Fat: <span id="fat2"></span></li>
+              <li data-index="1" class="recipeCard">Protein: <span id="protein2"></span></li>
             </ul>
           </div>
         </div>
       </div>      
     </div>
     <div class="column">
-      <div id="card3" class="card">
-        <div class="card-image">
-          <figure class="image is-4by3">
-            <img id="imgRecipe3" alt="Placeholder image 3">
+      <div data-index="2" id="card3" class="card recipeCard">
+        <div data-index="2" class="card-image recipeCard">
+          <figure data-index="2" class="image is-4by3 recipeCard">
+            <img data-index="2" id="imgRecipe3" class="recipeCard" alt="Placeholder image 3">
           </figure>
         </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p id="titleRecipe3" class="title is-4"></p>
+        <div data-index="2" class="card-content recipeCard">
+          <div data-index="2" class="media recipeCard">
+            <div data-index="2" class="media-content recipeCard">
+              <p data-index="2" id="titleRecipe3" class="title is-4 recipeCard" style="height: 60px;"></p>
             </div>
           </div>
-          <div class="content">
+          <div data-index="2" class="content recipeCard">
             <ul>
-              <li>Calories: <span id="calories3"></span></li>
-              <li>Fat: <span id="fat3"></span></li>
-              <li>Protein: <span id="protein3"></span></li>
+              <li data-index="2" class="recipeCard">Calories: <span id="calories3"></span></li>
+              <li data-index="2" class="recipeCard">Fat: <span id="fat3"></span></li>
+              <li data-index="2" class="recipeCard">Protein: <span id="protein3"></span></li>
             </ul>
           </div>
         </div>
@@ -88,41 +96,27 @@
       <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
-          <p class="modal-card-title">Recipe</p>
+          <p class="modal-card-title"><strong>STAY FIT</strong> with me</p>
           <button id="modalClose" class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
           <div class="content">
             <h1 id="detailRecipeTitle"></h1>
             <p>
-              1
+                <figure class="image">
+                  <img id="modalImg" alt="Placeholder modal">
+                </figure>
             </p>
-            <h2>Second level</h2>
-            <p>
-              2
-            </p>
-            <ul>
-              <li>In fermentum leo eu lectus mollis, quis dictum mi aliquet.</li>
-              <li>Morbi eu nulla lobortis, lobortis est in, fringilla felis.</li>
-              <li>Aliquam nec felis in sapien venenatis viverra fermentum nec lectus.</li>
-              <li>Ut non enim metus.</li>
-            </ul>
-            <h3>Third level</h3>
-            <p>3</p>
-            <ol>
-              <li>Donec blandit a lorem id convallis.</li>
-              <li>Cras gravida arcu at diam gravida gravida.</li>
-              <li>Integer in volutpat libero.</li>
-              <li>Donec a diam tellus.</li>
-              <li>Aenean nec tortor orci.</li>
-              <li>Quisque aliquam cursus urna, non bibendum massa viverra eget.</li>
-              <li>Vivamus maximus ultricies pulvinar.</li>
-            </ol>
+            <h2>Ingredients</h2>
+              <ul id="ingredientList">
+              </ul>
+            <h3>Cooking Instructions</h3>
+            <p id="cookingInstr" style="white-space: pre-line;"></p>
           </div>
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-success">Save changes</button>
-          <button class="button">Cancel</button>
+          <button id="addToListBtn" class="button is-success">Add to my list</button>
+          <button id="cancel" class="button">Cancel</button>
         </footer>
       </div>
     </div>

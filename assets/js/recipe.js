@@ -1,7 +1,7 @@
 function getRecipe() {
      var searchUrl = new URL(window.location.href);
      var searchInput = searchUrl.searchParams.get("searchInput");
-     var apiKey = "97bc536f5f184af3824d362034db1dc6";
+     var apiKey = "a31c316be4a641de87b16c303d4855f9";
      var recipeUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&minCalories=0&minProtein=0&minFat=0&number=3&apiKey=${apiKey}`
      fetch(recipeUrl)
           .then(function(response) {
@@ -41,27 +41,53 @@ function getRecipe() {
                fat3.textContent = Math.round(data.results[2].nutrition.nutrients[2].amount);
                var protein3 = document.getElementById("protein3");
                protein3.textContent = Math.round(data.results[2].nutrition.nutrients[1].amount);
+               var shoppingListUrl = [];
                function recipeDetail() {
                     document.addEventListener("click", function(event) {
                          var element = event.target;
-                         if (element.matches(".card1")) {
+                         if (element.matches(".recipeCard")) {
                               var modalCard = document.getElementById("modalCard");
                               modalCard.setAttribute("class", "modal is-active");
                               var detailRecipeTitle = document.getElementById("detailRecipeTitle");
-                              detailRecipeTitle.textContent = data.results[0].title;
+                              var j = element.dataset.index
+                              detailRecipeTitle.textContent = data.results[j].title;
                               //get ingredient info
-                              var recipeId = data.results[0].id;
-                              var detailRecipeUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?includeNutrition=false`;
+                              var recipeId = data.results[j].id;
+                              var detailRecipeUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?includeNutrition=false&apiKey=${apiKey}`;
                               console.log(detailRecipeUrl);
-                              // fetch(detailRecipeUrl)
-                              
+                              fetch(detailRecipeUrl)
+                                   .then(function(response) {
+                                        return response.json();
+                                   })
+                                   .then(function(data) {
+                                        var modalImg = document.getElementById("modalImg");
+                                        modalImg.setAttribute("src", data.image);
+                                        console.log(data.title);
+                                        var ingredientList = document.getElementById("ingredientList");
+                                        for (var i = 0; i < data.extendedIngredients.length; i++) {
+                                             var ingredientItem = document.createElement("li");
+                                             ingredientList.appendChild(ingredientItem);
+                                             ingredientItem.textContent = data.extendedIngredients[i].originalString
+                                             shoppingListUrl.push(`${data.extendedIngredients[i].nameClean}.`);
+                                        }
+                                        var cookingInstr = document.getElementById("cookingInstr");
+                                        var instruction = data.instructions.replaceAll(".", ".\n");
+                                        cookingInstr.textContent = instruction.replaceAll("<li>", "").replaceAll("</li>", "").replaceAll("<ol>", "").replaceAll("</ol>", "");
+                                        console.log(shoppingListUrl);
+                                   })
                          }
                     })
                     document.addEventListener("click", function(event) {
                          var element = event.target;
-                         if (element.matches("#modalClose")) {
+                         if (element.matches("#modalClose") || element.matches("#cancel")) {
                               var modalCard = document.getElementById("modalCard");
                               modalCard.setAttribute("class", "modal");
+                         }
+                    })
+                    document.addEventListener("click", function(event) {
+                         var element = event.target;
+                         if (element.matches("#addToListBtn")) {
+                              window.location.href = `../../kroger.html?list=${shoppingListUrl.join("")}`;
                          }
                     })
                }               
@@ -69,10 +95,9 @@ function getRecipe() {
           })
 }
 
-//getRecipe();
+getRecipe();
 
-// function getIngredient() {
+// function addToList() {
+//      var addToListBtn = document.getElementById("addToListBtn");
 //      if 
 // }
-
-
