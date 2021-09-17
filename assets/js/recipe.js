@@ -41,7 +41,7 @@ function getRecipe() {
                fat3.textContent = Math.round(data.results[2].nutrition.nutrients[2].amount);
                var protein3 = document.getElementById("protein3");
                protein3.textContent = Math.round(data.results[2].nutrition.nutrients[1].amount);
-               var shoppingListUrl = [];
+               var shoppingListUrl =[];
                function recipeDetail() {
                     document.addEventListener("click", function(event) {
                          var element = event.target;
