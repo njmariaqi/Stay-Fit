@@ -87,7 +87,7 @@ function getRecipe() {
                     document.addEventListener("click", function(event) {
                          var element = event.target;
                          if (element.matches("#addToListBtn")) {
-                              window.location.href = `../../html/kroger.html?list=${shoppingListUrl.join("")}`;
+                              window.location.href = `/html/kroger.html?list=${shoppingListUrl.join("")}`;
                          }
                     })
                }               
