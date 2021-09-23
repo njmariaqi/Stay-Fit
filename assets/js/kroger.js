@@ -65,18 +65,48 @@ function getToken(url) {
                     })
                     .then(function(data) {
                          console.log(data);
+                         var card1 = document.getElementById("ingredient1");
+                         card1.setAttribute("class", "column");
                          var productTitle0 = document.getElementById("productTitle0");
                          productTitle0.textContent = data.data[0].description;
                          var productImg0 = document.getElementById("productImg0");
-                         productImg0.setAttribute("src", data.data[0].images[1].sizes[3].url);
+                         for (let i = 0; i < data.data[0].images.length; i++) {
+                              if (data.data[0].images[i].perspective === "front") {
+                                   for (let j = 0; j < data.data[0].images[i].sizes.length; j++) {
+                                        if (data.data[0].images[i].sizes[j].size === "large") {
+                                             productImg0.setAttribute("src", data.data[0].images[i].sizes[j].url);
+                                        }
+                                   }
+                              }
+                         }
+                         var card2 = document.getElementById("ingredient2");
+                         card2.setAttribute("class", "column");
                          var productTitle1 = document.getElementById("productTitle1");
                          productTitle1.textContent = data.data[1].description;
                          var productImg1 = document.getElementById("productImg1");
-                         productImg1.setAttribute("src", data.data[1].images[1].sizes[3].url);
+                         for (let i = 0; i < data.data[1].images.length; i++) {
+                              if (data.data[1].images[i].perspective === "front") {
+                                   for (let j = 0; j < data.data[1].images[i].sizes.length; j++) {
+                                        if (data.data[1].images[i].sizes[j].size === "large") {
+                                             productImg1.setAttribute("src", data.data[1].images[i].sizes[j].url);
+                                        }
+                                   }
+                              }
+                         }
+                         var card3 = document.getElementById("ingredient3");
+                         card3.setAttribute("class", "column");
                          var productTitle2 = document.getElementById("productTitle2");
                          productTitle2.textContent = data.data[2].description;
                          var productImg2 = document.getElementById("productImg2");
-                         productImg2.setAttribute("src", data.data[2].images[1].sizes[3].url);
+                         for (let i = 0; i < data.data[2].images.length; i++) {
+                              if (data.data[2].images[i].perspective === "front") {
+                                   for (let j = 0; j < data.data[2].images[i].sizes.length; j++) {
+                                        if (data.data[2].images[i].sizes[j].size === "large") {
+                                             productImg2.setAttribute("src", data.data[2].images[i].sizes[j].url);
+                                        }
+                                   }
+                              }
+                         }
                          
                     })
           })
