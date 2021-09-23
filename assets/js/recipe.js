@@ -96,8 +96,3 @@ function getRecipe() {
 }
 
 getRecipe();
-
-// function addToList() {
-//      var addToListBtn = document.getElementById("addToListBtn");
-//      if 
-// }
