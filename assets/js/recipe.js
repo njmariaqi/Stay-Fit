@@ -1,47 +1,71 @@
-function getRecipe() {
-     var searchUrl = new URL(window.location.href);
-     var searchInput = searchUrl.searchParams.get("searchInput");
-     var apiKey = "a31c316be4a641de87b16c303d4855f9";
-     var recipeUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&minCalories=0&minProtein=0&minFat=0&number=3&apiKey=${apiKey}`
+
+var searchUrl = new URL(window.location.href);
+var searchInput = searchUrl.searchParams.get("searchInput");
+var recipeCount = parseInt(searchUrl.searchParams.get("page"))
+     console.log(recipeCount,"recipe count")
+var apiKey = "a31c316be4a641de87b16c303d4855f9";
+var recipeUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&minCalories=0&minProtein=0&minFat=0&number=100&apiKey=${apiKey}`
+     
+
+function getRecipe() { 
      fetch(recipeUrl)
           .then(function(response) {
                return response.json();
           })
           .then (function(data) {
+               console.log(data,"here")
+               function nextPage (){
+                    var nextButton = document.getElementById("nextPage");
+                    document.addEventListener("click", (event)=>{
+                         if (event.target === nextButton) {
+                              console.log("next page")
+                              recipeCount = recipeCount+3
+                              window.location.href = `recipe.html?searchInput=${searchInput}&page=${recipeCount}`;
+                         }
+                    })
+               }
+               nextPage();
+
+
+               console.log(recipeCount+1, "inside func count")
                //card1
                var titleRecipe1 = document.getElementById("titleRecipe1");
-               titleRecipe1.textContent = data.results[0].title;
+               titleRecipe1.textContent = data.results[recipeCount].title;
                var imgRecipe1 = document.getElementById("imgRecipe1");
-               imgRecipe1.setAttribute("src", data.results[0].image);
+               imgRecipe1.setAttribute("src", data.results[recipeCount].image);
                var calories = document.getElementById("calories");
-               calories.textContent = Math.round(data.results[0].nutrition.nutrients[0].amount);
+               calories.textContent = Math.round(data.results[recipeCount].nutrition.nutrients[0].amount);
                var fat = document.getElementById("fat");
-               fat.textContent = Math.round(data.results[0].nutrition.nutrients[2].amount);
+               fat.textContent = Math.round(data.results[recipeCount].nutrition.nutrients[2].amount);
                var protein = document.getElementById("protein");
-               protein.textContent = Math.round(data.results[0].nutrition.nutrients[1].amount); 
+               protein.textContent = Math.round(data.results[recipeCount].nutrition.nutrients[1].amount); 
                //card2
                var titleRecipe2 = document.getElementById("titleRecipe2");
                var imgRecipe2 = document.getElementById("imgRecipe2");
-               titleRecipe2.textContent = data.results[1].title;
-               imgRecipe2.setAttribute("src", data.results[1].image);
+               titleRecipe2.textContent = data.results[recipeCount+1].title;
+               imgRecipe2.setAttribute("src", data.results[recipeCount+1].image);
                var calories2 = document.getElementById("calories2");
-               calories2.textContent = Math.round(data.results[1].nutrition.nutrients[0].amount);
+               calories2.textContent = Math.round(data.results[recipeCount+1].nutrition.nutrients[0].amount);
                var fat2 = document.getElementById("fat2");
-               fat2.textContent = Math.round(data.results[1].nutrition.nutrients[2].amount);
+               fat2.textContent = Math.round(data.results[recipeCount+1].nutrition.nutrients[2].amount);
                var protein2 = document.getElementById("protein2");
-               protein2.textContent = Math.round(data.results[1].nutrition.nutrients[1].amount);
+               protein2.textContent = Math.round(data.results[recipeCount+1].nutrition.nutrients[1].amount);
                //card3
                var titleRecipe3 = document.getElementById("titleRecipe3");
                var imgRecipe3 = document.getElementById("imgRecipe3");
-               titleRecipe3.textContent = data.results[2].title;
-               imgRecipe3.setAttribute("src", data.results[2].image);
+               titleRecipe3.textContent = data.results[recipeCount+2].title;
+               imgRecipe3.setAttribute("src", data.results[recipeCount+2].image);
                var calories3 = document.getElementById("calories3");
-               calories3.textContent = Math.round(data.results[2].nutrition.nutrients[0].amount);
+               calories3.textContent = Math.round(data.results[recipeCount+2].nutrition.nutrients[0].amount);
                var fat3 = document.getElementById("fat3");
-               fat3.textContent = Math.round(data.results[2].nutrition.nutrients[2].amount);
+               fat3.textContent = Math.round(data.results[recipeCount+2].nutrition.nutrients[2].amount);
                var protein3 = document.getElementById("protein3");
-               protein3.textContent = Math.round(data.results[2].nutrition.nutrients[1].amount);
+               protein3.textContent = Math.round(data.results[recipeCount+2].nutrition.nutrients[1].amount);
+               
+               
+
                var shoppingListUrl =[];
+
                function recipeDetail() {
                     document.addEventListener("click", function(event) {
                          var element = event.target;

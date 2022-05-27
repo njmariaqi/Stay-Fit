@@ -15,6 +15,25 @@ for (var i = 0; i < shoppingList.length - 1; i++) {
      listContent.textContent = shoppingList[i];
 }
 
+// (function() {
+//      var cors_api_host = 'cors-anywhere.herokuapp.com';
+//      var cors_api_url = 'https://' + cors_api_host + '/';
+//      var slice = [].slice;
+//      var origin = window.location.protocol + '//' + window.location.host;
+//      var open = XMLHttpRequest.prototype.open;
+//      XMLHttpRequest.prototype.open = function() {
+//           var args = slice.call(arguments);
+//           var targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
+//           if (targetOrigin && targetOrigin[0].toLowerCase() !== origin &&
+//                targetOrigin[1] !== cors_api_host) {
+//                args[1] = cors_api_url + args[1];
+//           }
+//           return open.apply(this, args);
+//      };
+// })();
+
+
+
 document.addEventListener("click", function(event) {
      var element = event.target;
      if (element.matches("button")) {
@@ -27,18 +46,6 @@ document.addEventListener("click", function(event) {
 })
 
 
-
-
-// function displayKroger(name) {
-//      for (var i = 0; i < shoppingList.length; i++) {
-//           var itemUrl = `https://api.kroger.com/v1/products?filter.term=${name}&filter.limit=1`
-//           console.log("here" + name);
-//           getToken(itemUrl);
-//      }     
-// }
-
-//displayKroger();
-
 function getToken(url) {
      fetch("https://api.kroger.com/v1/connect/oauth2/token", {
           method: "POST",
@@ -46,7 +53,7 @@ function getToken(url) {
                'Content-Type': 'application/x-www-form-urlencoded',
                'Authorization': 'Basic c3RheWZpdC01ZjI1YjU2ZWFhZTZjNDBmMmJlMzhmZDZmOGUyYTVhMzQzOTc3MTMzMzkyMzkxMTc2NTE6TDQ0Vk1BTDZBZUYwZ3E3czJFcHBOeWlYdTNHczlnYzRZYkE0S0VPVg==',
           }, 
-          body: 'grant_type=client_credentials&scope=product.compact'
+          body: 'grant_type=client_credentials&scope=product.compact',
      })
           .then(function(response) {
                return response.json();
