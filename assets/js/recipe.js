@@ -4,7 +4,7 @@ var searchInput = searchUrl.searchParams.get("searchInput");
 var recipeCount = parseInt(searchUrl.searchParams.get("page"))
      console.log(recipeCount,"recipe count")
 var apiKey = "a31c316be4a641de87b16c303d4855f9";
-var recipeUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&minCalories=0&minProtein=0&minFat=0&number=100&apiKey=${apiKey}`
+var recipeUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&minCalories=0&minProtein=0&minFat=0&number=4&apiKey=${apiKey}`
      
 
 function getRecipe() { 

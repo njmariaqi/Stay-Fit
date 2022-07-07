@@ -3,6 +3,13 @@ var text = searchUrl.searchParams.get("list");
 var ptest = document.getElementById("test");
 var shoppingList = text.split(".");
 console.log(shoppingList);
+
+var emailTo = document.getElementById("emailTo");
+emailTo.href=`mailto: abc@example.com?
+subject=My Shopping List
+&body=${shoppingList}`;
+
+
 for (var i = 0; i < shoppingList.length - 1; i++) {
      // var listItem = document.createElement("li");
      // ptest.appendChild(listItem);
@@ -49,6 +56,7 @@ document.addEventListener("click", function(event) {
 function getToken(url) {
      fetch("https://api.kroger.com/v1/connect/oauth2/token", {
           method: "POST",
+          crossDomain: true,
           headers: {
                'Content-Type': 'application/x-www-form-urlencoded',
                'Authorization': 'Basic c3RheWZpdC01ZjI1YjU2ZWFhZTZjNDBmMmJlMzhmZDZmOGUyYTVhMzQzOTc3MTMzMzkyMzkxMTc2NTE6TDQ0Vk1BTDZBZUYwZ3E3czJFcHBOeWlYdTNHczlnYzRZYkE0S0VPVg==',
@@ -56,10 +64,12 @@ function getToken(url) {
           body: 'grant_type=client_credentials&scope=product.compact',
      })
           .then(function(response) {
+               console.log("success 1")
                return response.json();
           })
           .then(function(data) {
                var token = data.access_token;
+               console.log(token, "token get")
                fetch(url, {
                     method: "GET",
                     headers: {
